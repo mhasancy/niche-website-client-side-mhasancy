@@ -1,16 +1,19 @@
 //imported file
+import { Button } from "@mui/material";
+import { Box } from "@mui/system";
 import React from "react";
+import { Link } from "react-router-dom";
 
 //banner component
 const Banner = () => {
   return (
-    <div
-      style={{ height: "550px" }}
+    <Box
+      style={{ height: "550px", marginTop: "68px" }}
       id="carouselExampleCaptions"
       className="carousel slide"
       data-bs-ride="carousel"
     >
-      <div className="carousel-indicators">
+      <Box className="carousel-indicators">
         <button
           type="button"
           data-bs-target="#carouselExampleCaptions"
@@ -31,156 +34,117 @@ const Banner = () => {
           data-bs-slide-to="2"
           aria-label="Slide 3"
         ></button>
-      </div>
-      <div className="carousel-inner">
-        <div className="carousel-item active">
+      </Box>
+      <Box className="carousel-inner">
+        <Box className="carousel-item active">
           <p
             style={{
               height: "550px",
-              background: `url("https://i.imgur.com/ZSQZG8Q.jpeg")`,
+              background: `url("https://wpbingosite.com/wordpress/wrish/wp-content/uploads/2021/08/slider-1-3.jpg")`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
             }}
             className="d-block img-fluid w-100"
           />
-          <div className="carousel-caption text-start card-img-overlay">
-            <div className="mt-5">
+          <Box className="carousel-caption text-start card-img-overlay">
+            <Box className="mt-5">
+              <p>EXTRA 20% OFF</p>
               <h1 className="d-none d-md-block col-12 col-md-6 text-white fw-bold">
-                Start Your Journey
+                NEW <br />
+                ARRIVALS
                 <span className="gradient-txt"> .</span>
               </h1>
               <h1
                 style={{ fontSize: "2.5rem" }}
                 className="d-block d-md-none col-12 col-md-6 text-white fw-bold"
               >
-                Start Your Journey
+                NEW <br />
+                ARRIVALS
                 <span className="gradient-txt"> .</span>
               </h1>
-              <div>
-                <p
-                  style={{ height: "200px" }}
-                  className="d-none d-md-block col-12 mt-4 col-md-6 fw-light text-white fs-4 text-start lh-base "
-                >
-                  Sooner or later we must realize there is no station, no one
-                  place to arrive at once and for all. The true joy of life is
-                  the trip. <br />— Robert J. Hastings
-                </p>
-                <p className="d-block d-md-none col-12 col-md-6 fw-light text-white fs-4 text-start lh-base ">
-                  Sooner or later we must realize there is no station, no one
-                  place to arrive at once and for all. The true joy of life is
-                  the trip.
-                </p>
-              </div>
+              <Box></Box>
               <span className="text-start ">
-                <a
-                  href="#services"
-                  className="btn btn-primary fw-bold gradient-btn rounded-3 px-3 mt-3"
-                >
-                  <i className="far fa-bookmark"></i> Book Now
-                </a>
+                <Link to="/products">
+                  {" "}
+                  <Button variant="contained" className="px-3 mt-3">
+                    <i className="far fa-bookmark"></i> Explore
+                  </Button>
+                </Link>
               </span>
-            </div>
-          </div>
-        </div>
-        <div className="carousel-item">
+            </Box>
+          </Box>
+        </Box>
+        <Box className="carousel-item">
           <p
             style={{
               height: "550px",
-              background: `url("https://i.imgur.com/6kdVS8j.jpeg")`,
+              background: `url("https://wpbingosite.com/wordpress/wrish/wp-content/uploads/2021/08/slider-3-3.jpg")`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
             }}
             className="d-block img-fluid w-100"
           />
-          <div className="carousel-caption text-start card-img-overlay">
-            <div className="mt-5">
+          <Box className="carousel-caption text-start card-img-overlay">
+            <Box className="mt-5">
+              <p>EXTRA 20% OFF</p>
               <h1 className="d-none d-md-block col-12 col-md-6 text-white fw-bold">
-                Start Your Journey
+                EXCLUSIVE <br /> COLLECTION
                 <span className="gradient-txt"> .</span>
               </h1>
               <h1
                 style={{ fontSize: "2.5rem" }}
                 className="d-block d-md-none col-12 col-md-6 text-white fw-bold"
               >
-                Start Your Journey
+                EXCLUSIVE <br /> COLLECTION
                 <span className="gradient-txt"> .</span>
               </h1>
-              <div>
-                <p
-                  style={{ height: "200px" }}
-                  className="d-none d-md-block col-12 col-md-6 mt-4 fw-light text-white fs-4 text-start lh-base "
-                >
-                  The trail is the thing, not the end of the trail. Travel too
-                  fast and you miss all you are traveling for. <br />— Louis
-                  L’Amour
-                </p>
-                <p className="d-block d-md-none col-12 col-md-6 fw-light text-white fs-4 text-start lh-base ">
-                  The trail is the thing, not the end of the trail. Travel too
-                  fast and you miss all you are traveling for.
-                </p>
-              </div>
+              <Box></Box>
               <span className="text-start ">
-                <a
-                  href="#services"
-                  className="btn btn-primary fw-bold gradient-btn rounded-3 px-3 mt-3"
-                >
-                  <i className="far fa-bookmark"></i> Book Now
-                </a>
+                <Link to="/products">
+                  <Button variant="contained" className="px-3 mt-3">
+                    <i className="far fa-bookmark"></i> Explore
+                  </Button>
+                </Link>
               </span>
-            </div>
-          </div>
-        </div>
-        <div className="carousel-item">
+            </Box>
+          </Box>
+        </Box>
+        <Box className="carousel-item">
           <p
             style={{
               height: "550px",
-              background: `url("https://i.imgur.com/ZSVqjT5.jpeg")`,
+              background: `url("https://wpbingosite.com/wordpress/wrish/wp-content/uploads/2021/10/slider2.jpg")`,
               backgroundRepeat: "no-repeat",
               backgroundSize: "cover",
             }}
             className="d-block img-fluid w-100"
           />
-          <div className="carousel-caption text-start card-img-overlay">
-            <div className="mt-5">
+          <Box className="carousel-caption text-start card-img-overlay">
+            <Box className="mt-5">
+              <p>EXTRA 20% OFF</p>
               <h1 className="d-none d-md-block col-12 col-md-6 text-white fw-bold">
-                Start Your Journey
-                <span className="gradient-txt"> .</span>
+                SPRING <br /> COLLECTION
               </h1>
               <h1
                 style={{ fontSize: "2.5rem" }}
                 className="d-block d-md-none col-12 col-md-6 text-white fw-bold"
               >
-                Start Your Journey
-                <span className="gradient-txt"> .</span>
+                SPRING <br /> COLLECTION
               </h1>
-              <div>
-                <div>
-                  <p
-                    style={{ height: "200px" }}
-                    className="d-none d-md-block col-12 col-md-6 mt-4 fw-light text-white fs-4 text-start lh-base "
-                  >
-                    I wandered everywhere, through cities and countries wide.
-                    And everywhere I went, the world was on my side. <br />―
-                    Roman Payne
-                  </p>
-                  <p className="d-block d-md-none col-12 col-md-6 fw-light text-white fs-4 text-start lh-base ">
-                    I wandered everywhere, through cities and countries wide.
-                    And everywhere I went, the world was on my side.
-                  </p>
-                </div>
-              </div>
+              <Box>
+                <Box></Box>
+              </Box>
               <span className="text-start ">
-                <a
-                  href="#services"
-                  className="btn btn-primary fw-bold gradient-btn rounded-3 px-3 mt-3"
-                >
-                  <i className="far fa-bookmark"></i> Book Now
-                </a>
+                <Link to="/products">
+                  <Button variant="contained" className="px-3 mt-3">
+                    <i className="far fa-bookmark"></i> Explore
+                  </Button>
+                </Link>
               </span>
-            </div>
-          </div>
-        </div>
-      </div>
+            </Box>
+          </Box>
+        </Box>
+      </Box>
       <button
         className="carousel-control-prev"
         type="button"
@@ -199,7 +163,7 @@ const Banner = () => {
         <span className="carousel-control-next-icon" aria-hidden="true"></span>
         <span className="visually-hidden">Next</span>
       </button>
-    </div>
+    </Box>
   );
 };
 

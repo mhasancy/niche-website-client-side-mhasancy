@@ -10,8 +10,8 @@ const Footer = () => {
         {/* short about */}
         <div className="col col-md-5">
           <h2 className="fw-bold fs-1 text-start ms-3 ps-4">
-            <span style={{ fontFamily: "Kristi" }} className="gradient-txt">
-              Travel Now
+            <span style={{ fontFamily: "Merienda" }} className="gradient-txt">
+              Green Watch
             </span>
           </h2>
           <br />

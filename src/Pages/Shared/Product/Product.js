@@ -1,4 +1,5 @@
 //imported file
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import Button from "@mui/material/Button";
 import Card from "@mui/material/Card";
 import CardActions from "@mui/material/CardActions";
@@ -29,7 +30,10 @@ const Product = ({ productData }) => {
           <Button size="small">Share</Button>
           <Link to={`/review-order/${_id}`}>
             {" "}
-            <Button size="small">Order Now</Button>
+            <Button size="small">
+              <ShoppingCartIcon />
+              Order Now
+            </Button>
           </Link>
         </CardActions>
       </Card>

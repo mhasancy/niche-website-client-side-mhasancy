@@ -25,9 +25,15 @@ const useFirebase = () => {
   const [passwordData, setPasswordData] = useState("");
   const [nameData, setNameData] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [admin, setAdmin] = useState(false);
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState(false);
   const googleProvider = new GoogleAuthProvider();
-
+  useEffect(() => {
+    axios.get(`http://localhost:5000/users/${user?.email}`).then((res) => {
+      setAdmin(res?.data.admin);
+    });
+  }, [user?.email]);
   //googleSignIn
   const googleSignIn = (location, history) => {
     setIsLoading(true);
@@ -78,6 +84,8 @@ const useFirebase = () => {
       axios.put("http://localhost:5000/users", { email, displayName }).then();
     }
   };
+
+  //load admin
 
   //email login
   const emailLogin = (email, password, location, history) => {
@@ -131,6 +139,8 @@ const useFirebase = () => {
     isLoading,
     user,
     error,
+    admin,
+    success,
     setIsLoading,
     setEmailData,
     setPasswordData,
@@ -142,6 +152,7 @@ const useFirebase = () => {
     emailLogin,
     emailSignup,
     errorDataClear,
+    setSuccess,
   };
 };
 export default useFirebase;

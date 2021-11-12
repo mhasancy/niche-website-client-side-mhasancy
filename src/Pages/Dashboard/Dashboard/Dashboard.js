@@ -9,9 +9,10 @@ import IconButton from "@mui/material/IconButton";
 import ListItem from "@mui/material/ListItem";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
-import PropTypes from "prop-types";
 import * as React from "react";
 import { Link, Route, Switch, useRouteMatch } from "react-router-dom";
+import useAuth from "../../../hooks/useAuth";
+import AdminRoute from "../../UserAuthorize/AdminRoute/AdminRoute";
 import AddingProduct from "../AddingProduct/AddingProduct";
 import AddingReview from "../AddingReview/AddingReview";
 import DashboardHome from "../DashboardHome/DashboardHome";
@@ -23,7 +24,9 @@ import Payment from "../Payment/Payment";
 
 const drawerWidth = 230;
 
-function Dashboard(props) {
+const Dashboard = (props) => {
+  const { firebaseContext } = useAuth();
+  const { admin, logOut } = firebaseContext;
   let { path, url } = useRouteMatch();
   const { window } = props;
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -44,54 +47,61 @@ function Dashboard(props) {
         </Typography>
       </Toolbar>
       <Divider />
-
       <Link to="/">
-        <Button size="large" sx={{ width: "100%", height: "7%" }}>
+        <Button size="large" sx={{ width: "100%" }}>
           <ListItem>Home</ListItem>
         </Button>
       </Link>
+
+      {admin && (
+        <>
+          <Link to={`${url}/make-admin`}>
+            <Button size="large" sx={{ width: "100%" }}>
+              <ListItem>Make Admin</ListItem>
+            </Button>
+          </Link>
+          <Link to={`${url}/all-orders`}>
+            <Button size="large" sx={{ width: "100%" }}>
+              <ListItem>Manage Orders</ListItem>
+            </Button>
+          </Link>
+          <Link to={`${url}/add-products`}>
+            <Button size="large" sx={{ width: "100%" }}>
+              <ListItem>Add Products</ListItem>
+            </Button>
+          </Link>
+          <Link to={`${url}/manage-products`}>
+            <Button size="large" sx={{ width: "100%" }}>
+              <ListItem>Manage Products</ListItem>
+            </Button>
+          </Link>
+        </>
+      )}
+
       <Link to={`${url}`}>
-        <Button size="large" sx={{ width: "100%", height: "7%" }}>
+        <Button size="large" sx={{ width: "100%" }}>
           <ListItem>Dashboard</ListItem>
         </Button>
       </Link>
-      <Link to={`${url}/make-admin`}>
-        <Button size="large" sx={{ width: "100%", height: "7%" }}>
-          <ListItem>Make Admin</ListItem>
-        </Button>
-      </Link>
-      <Link to={`${url}/add-products`}>
-        <Button size="large" sx={{ width: "100%", height: "7%" }}>
-          <ListItem>Add Products</ListItem>
-        </Button>
-      </Link>
-      <Link to={`${url}/manage-products`}>
-        <Button size="large" sx={{ width: "100%", height: "7%" }}>
-          <ListItem>Manage Products</ListItem>
-        </Button>
-      </Link>
+
       <Link to={`${url}/payment`}>
-        <Button size="large" sx={{ width: "100%", height: "7%" }}>
+        <Button size="large" sx={{ width: "100%" }}>
           <ListItem>Payment</ListItem>
         </Button>
       </Link>
       <Link to={`${url}/my-orders`}>
-        <Button size="large" sx={{ width: "100%", height: "7%" }}>
+        <Button size="large" sx={{ width: "100%" }}>
           <ListItem>My Orders</ListItem>
         </Button>
       </Link>
-      <Link to={`${url}/all-orders`}>
-        <Button size="large" sx={{ width: "100%", height: "7%" }}>
-          <ListItem>Manage Orders</ListItem>
-        </Button>
-      </Link>
+
       <Link to={`${url}/add-reviews`}>
-        <Button size="large" sx={{ width: "100%", height: "7%" }}>
+        <Button size="large" sx={{ width: "100%" }}>
           <ListItem>Add Reviews</ListItem>
         </Button>
       </Link>
 
-      <Button size="large" sx={{ width: "100%", height: "7%" }}>
+      <Button onClick={logOut} size="large" sx={{ width: "100%" }}>
         <ListItem>Log Out</ListItem>
       </Button>
     </div>
@@ -181,24 +191,24 @@ function Dashboard(props) {
           <Route exact path={path}>
             <DashboardHome />
           </Route>
-          <Route path={`${path}/make-admin`}>
+          <AdminRoute path={`${path}/make-admin`}>
             <MakeAdmin></MakeAdmin>
-          </Route>
-          <Route path={`${path}/add-products`}>
+          </AdminRoute>
+          <AdminRoute path={`${path}/add-products`}>
             <AddingProduct></AddingProduct>
-          </Route>
-          <Route path={`${path}/manage-products`}>
+          </AdminRoute>
+          <AdminRoute path={`${path}/manage-products`}>
             <ManageProducts></ManageProducts>
-          </Route>
+          </AdminRoute>
           <Route path={`${path}/payment`}>
             <Payment></Payment>
           </Route>
           <Route path={`${path}/my-orders`}>
             <MyOrders></MyOrders>
           </Route>
-          <Route path={`${path}/all-orders`}>
+          <AdminRoute path={`${path}/all-orders`}>
             <ManageOrders></ManageOrders>
-          </Route>
+          </AdminRoute>
           <Route path={`${path}/add-reviews`}>
             <AddingReview></AddingReview>
           </Route>
@@ -206,14 +216,6 @@ function Dashboard(props) {
       </Box>
     </Box>
   );
-}
-
-Dashboard.propTypes = {
-  /**
-   * Injected by the documentation to work in an iframe.
-   * You won't need it on your project.
-   */
-  window: PropTypes.func,
 };
 
 export default Dashboard;
