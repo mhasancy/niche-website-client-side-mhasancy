@@ -22,7 +22,7 @@ const AddingProduct = () => {
   const onSubmitData = (inputData) => {
     const { title, intro, imgUrl, price } = inputData;
     axios
-      .post("http://localhost:5000/products", {
+      .post("https://quiet-cliffs-65550.herokuapp.com/products", {
         title: title,
         intro: intro,
         imgUrl: imgUrl,
@@ -49,9 +49,10 @@ const AddingProduct = () => {
           alignItems: "center",
         }}
       >
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h3">
           Add Products
-        </Typography>
+        </Typography>{" "}
+        <br />
         <Box
           component="form"
           noValidate

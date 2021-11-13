@@ -37,9 +37,9 @@ function App() {
             </Route>
             <Route exact path="/signup">
               <SignUp></SignUp>
-              <Route path="*">
-                <NotFound></NotFound>
-              </Route>
+            </Route>
+            <Route path="*">
+              <NotFound></NotFound>
             </Route>
           </Switch>
         </Router>

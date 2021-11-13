@@ -8,6 +8,7 @@ import {
   CardMedia,
   Container,
   Grid,
+  Rating,
   Typography,
 } from "@mui/material";
 import { Box } from "@mui/system";
@@ -19,7 +20,6 @@ import Blogs from "../Blogs/Blogs";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import Reviews from "../Reviews/Reviews";
-import Team from "../Team/Team";
 
 //home component
 const Home = () => {
@@ -29,16 +29,16 @@ const Home = () => {
     <div>
       <Header></Header>
       <Banner></Banner>
-
+      <br />
+      <br />
       <Container>
         <Typography variant="h2" gutterBottom component="div">
-          Pick your Watch
+          Featured Watches For You
         </Typography>
         <Typography variant="h6" gutterBottom component="div">
-          When it comes to exploring exotic places, the choices are numerous.
-          Whether you like peaceful destinations or vibrant landscapes, we have
-          offers for you.
+          Today is the last day. Up to 30% off!
         </Typography>
+        <br />
         <Box sx={{ flexGrow: 1 }}>
           <Grid
             container
@@ -47,13 +47,15 @@ const Home = () => {
           >
             {productsData
               .slice(0, 6)
-              .map(({ _id, title, intro, imgUrl, duration, price }) => {
+              .map(({ _id, title, intro, imgUrl, rating, price }) => {
                 return (
-                  <Grid item xs={8} md={4}>
-                    <Card sx={{ maxWidth: 345 }}>
+                  <Grid item xs={8} md={4} sx={{ mx: "auto" }}>
+                    <Card
+                      sx={{ maxWidth: 400, textAlign: "center", height: 530 }}
+                    >
                       <CardMedia
                         component="img"
-                        height="140"
+                        height="300"
                         image={imgUrl}
                         alt=""
                       />
@@ -61,20 +63,37 @@ const Home = () => {
                         <Typography gutterBottom variant="h5" component="div">
                           {title}
                         </Typography>
-                        <Typography variant="body2" color="text.secondary">
+                        <Typography
+                          sx={{ height: 50 }}
+                          variant="body2"
+                          color="text.secondary"
+                        >
                           {intro?.slice(0, 100)}
                         </Typography>
-                        {price} {duration}
+                        <Grid
+                          container
+                          direction="row"
+                          justifyContent="space-around"
+                          alignItems="center"
+                          pt={1.5}
+                        >
+                          <Typography variant="h6" component="div">
+                            $ {price}
+                          </Typography>
+                          <Rating name="read-only" value={rating} readOnly />
+                        </Grid>
                       </CardContent>
                       <CardActions>
-                        <Button size="small">Share</Button>
-                        <Link to={`/review-order/${_id}`}>
+                        <Box sx={{ mx: "auto" }}>
                           {" "}
-                          <Button size="small">
-                            <ShoppingCartIcon />
-                            Order Now
-                          </Button>
-                        </Link>
+                          <Link to={`/review-order/${_id}`}>
+                            {" "}
+                            <Button variant="contained" size="small">
+                              <ShoppingCartIcon />
+                              Order Now
+                            </Button>
+                          </Link>
+                        </Box>
                       </CardActions>
                     </Card>
                   </Grid>
@@ -86,7 +105,6 @@ const Home = () => {
 
       <Blogs></Blogs>
       <Reviews></Reviews>
-      <Team></Team>
       <Footer></Footer>
     </div>
   );

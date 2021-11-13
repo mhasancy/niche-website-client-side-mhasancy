@@ -55,13 +55,12 @@ const Login = () => {
           alignItems: "center",
         }}
       >
-        <Avatar sx={{ m: 1, bgcolor: "secondary.main" }}>
+        <Avatar sx={{ m: 1, bgcolor: "primary.main" }}>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
-          Sign in
+          Log In to stay connected.
         </Typography>
-
         <Box
           component="form"
           noValidate
@@ -99,16 +98,24 @@ const Login = () => {
             variant="contained"
             sx={{ mt: 3, mb: 2 }}
           >
-            Sign Up
+            Login
           </Button>
         </Box>
-        <Button sx={{ mb: 2 }} variant="contained" onClick={handleGoogleLogin}>
-          Login with Google
-        </Button>
+
+        <Box>
+          <img
+            style={{ cursor: "pointer" }}
+            className="img-fluid"
+            onClick={handleGoogleLogin}
+            src="./google-signin.png"
+            alt=""
+          />
+        </Box>
+        <br />
         <Grid container justifyContent="center">
           <Grid item sx={{ mb: 10 }}>
             <Link to="/signup" variant="body2">
-              {"Don't have an account? Sign Up"}
+              <Button>Don't have an account? Sign Up</Button>
             </Link>
           </Grid>
         </Grid>
@@ -116,11 +123,13 @@ const Login = () => {
       <Typography variant="body2" color="text.secondary" align="center">
         {"Copyright © "}
         <Link color="inherit" to="/">
-          Your Website
+          Green Watch
         </Link>{" "}
         {new Date().getFullYear()}
         {"."}
       </Typography>
+      <br />
+      <br />
     </Container>
   );
 };

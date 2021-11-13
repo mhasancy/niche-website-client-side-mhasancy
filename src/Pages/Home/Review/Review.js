@@ -1,15 +1,16 @@
-import { Paper, Rating, Typography } from "@mui/material";
+import { Grid, Rating, Typography } from "@mui/material";
 import React from "react";
 
 const Review = ({ reviewData }) => {
   const { name, imgUrl, intro, rating } = reviewData;
   return (
-    <Paper>
-      <Typography>{name}</Typography>
-      <Typography>{intro}</Typography>
-      <Typography>{rating}</Typography>
+    <Grid sx={{ py: 10 }} item xs={11} sm={11} md={6}>
+      <Typography component="h3" variant="h5" mb={2}>
+        {name}
+      </Typography>
+      <Typography mb={2}>{intro}</Typography>
       <Rating name="read-only" value={rating} readOnly />
-    </Paper>
+    </Grid>
   );
 };
 

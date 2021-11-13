@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 const useDataContext = () => {
   //data state for CRUD operations
   const [productsData, setProductsData] = useState([]);
-  const [teamData, setTeamData] = useState([]);
   const [blogsData, setBlogsData] = useState([]);
   const [ordersData, setOrdersData] = useState([]);
   const [error, setError] = useState("");
@@ -18,7 +17,7 @@ const useDataContext = () => {
     const confirmation = window.confirm("Are you sure you want to delete?");
     if (confirmation) {
       axios
-        .delete(`http://localhost:5000/orders/${_id}`)
+        .delete(`https://quiet-cliffs-65550.herokuapp.com/orders/${_id}`)
         .then((response) => {
           if (response.data.deletedCount > 0) {
             const remainingOrders = ordersData.filter(
@@ -36,7 +35,7 @@ const useDataContext = () => {
     const confirmation = window.confirm("Are you sure you want to delete?");
     if (confirmation) {
       axios
-        .delete(`http://localhost:5000/products/${_id}`)
+        .delete(`https://quiet-cliffs-65550.herokuapp.com/products/${_id}`)
         .then((response) => {
           if (response.data.deletedCount > 0) {
             const remainingProducts = productsData.filter(
@@ -52,7 +51,7 @@ const useDataContext = () => {
   //handle status change to approved
   const handleStatusUpdate = (_id) => {
     axios
-      .put(`http://localhost:5000/orders/${_id}`, {
+      .put(`https://quiet-cliffs-65550.herokuapp.com/orders/${_id}`, {
         status: "Shipped",
       })
       .then((response) => {
@@ -66,22 +65,15 @@ const useDataContext = () => {
   //product data load
   useEffect(() => {
     axios
-      .get("http://localhost:5000/products")
+      .get("https://quiet-cliffs-65550.herokuapp.com/products")
       .then((response) => setProductsData(response?.data))
       .catch((error) => setError(error));
   }, []);
 
-  //team data load
-  useEffect(() => {
-    axios
-      .get("http://localhost:5000/team")
-      .then((response) => setTeamData(response?.data))
-      .catch((error) => setError(error));
-  }, []);
   //review data load
   useEffect(() => {
     axios
-      .get("http://localhost:5000/reviews")
+      .get("https://quiet-cliffs-65550.herokuapp.com/reviews")
       .then((response) => setReviewsData(response?.data))
       .catch((error) => setError(error));
   }, []);
@@ -89,7 +81,7 @@ const useDataContext = () => {
   //blogs data load
   useEffect(() => {
     axios
-      .get("http://localhost:5000/blogs")
+      .get("https://quiet-cliffs-65550.herokuapp.com/blogs")
       .then((response) => setBlogsData(response?.data))
       .catch((error) => setError(error));
   }, []);
@@ -97,7 +89,7 @@ const useDataContext = () => {
   //individual order data load
   useEffect(() => {
     axios
-      .get("http://localhost:5000/orders")
+      .get("https://quiet-cliffs-65550.herokuapp.com/orders")
       .then((response) => setOrdersData(response?.data))
       .catch((error) => setError(error));
   }, []);
@@ -105,7 +97,6 @@ const useDataContext = () => {
   return {
     productsData,
     ordersData,
-    teamData,
     blogsData,
     deleteOrder,
     handleStatusUpdate,

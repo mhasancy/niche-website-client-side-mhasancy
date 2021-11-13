@@ -23,16 +23,18 @@ const MakeAdmin = () => {
     setError(false);
 
     const { email } = inputData;
-    axios.put("http://localhost:5000/users/admin", { email }).then((res) => {
-      console.log(res.data);
-      if (res?.data?.modifiedCount > 0) {
-        alert("ok");
-        setSuccess(true);
-      } else if (res?.data?.modifiedCount === 0) {
-        window.alert("ono ok");
-        setError(true);
-      }
-    });
+    axios
+      .put("https://quiet-cliffs-65550.herokuapp.com/users/admin", { email })
+      .then((res) => {
+        console.log(res.data);
+        if (res?.data?.modifiedCount > 0) {
+          alert("ok");
+          setSuccess(true);
+        } else if (res?.data?.modifiedCount === 0) {
+          window.alert("ono ok");
+          setError(true);
+        }
+      });
   };
   return (
     <Container component="main" maxWidth="xs">
@@ -44,9 +46,10 @@ const MakeAdmin = () => {
           alignItems: "center",
         }}
       >
-        <Typography component="h1" variant="h5">
-          Make an Admin
+        <Typography component="h4" variant="h3">
+          Make An Admin
         </Typography>
+        <br />
         <Box
           component="form"
           noValidate

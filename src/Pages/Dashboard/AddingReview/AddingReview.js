@@ -7,7 +7,10 @@ import TextField from "@mui/material/TextField";
 import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
+import useAuth from "../../../hooks/useAuth";
 const AddingReview = () => {
+  const { firebaseContext } = useAuth();
+  const { user } = firebaseContext;
   const {
     register,
     reset,
@@ -19,7 +22,7 @@ const AddingReview = () => {
   const onSubmitData = (inputData) => {
     const { name, email, intro, rating } = inputData;
     axios
-      .post("http://localhost:5000/reviews", {
+      .post("https://quiet-cliffs-65550.herokuapp.com/reviews", {
         name: name,
         email: email,
         intro: intro,
@@ -45,7 +48,7 @@ const AddingReview = () => {
           alignItems: "center",
         }}
       >
-        <Typography component="h1" variant="h5">
+        <Typography component="h1" variant="h4">
           Add a Review
         </Typography>
         <Box
@@ -65,6 +68,7 @@ const AddingReview = () => {
                 id="name"
                 label="Name"
                 autoFocus
+                defaultValue={user?.displayName}
               />
             </Grid>
             <Grid item xs={12}>
@@ -77,6 +81,7 @@ const AddingReview = () => {
                 label="Email Address"
                 name="email"
                 autoComplete="email"
+                defaultValue={user?.email}
               />
             </Grid>
             <Grid item xs={12}>

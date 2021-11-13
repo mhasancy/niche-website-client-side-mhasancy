@@ -1,10 +1,19 @@
+import { Container, Typography } from "@mui/material";
 import React from "react";
 
 const Payment = () => {
   return (
-    <div>
-      <h2>Payment</h2>
-    </div>
+    <Container>
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <Typography component="h1" variant="h3">
+        Payment option will be available soon.
+      </Typography>
+    </Container>
   );
 };
 

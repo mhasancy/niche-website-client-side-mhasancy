@@ -10,16 +10,15 @@ const Footer = () => {
         {/* short about */}
         <div className="col col-md-5">
           <h2 className="fw-bold fs-1 text-start ms-3 ps-4">
-            <span style={{ fontFamily: "Merienda" }} className="gradient-txt">
-              Green Watch
-            </span>
+            <span style={{ fontFamily: "Merienda" }}>Green Watch</span>
           </h2>
           <br />
           <p className="fw-light fs-5 text-start ms-4 ps-3 lh-base">
-            Travel is an travel agency from England. We provide great travel
-            experience providing a variety of services. Make yourself
-            comfortable to take out services on demand. And make a fresh and
-            great journey with us.
+            Time to be Different. That's the motto at Green Watch. Purveyors of
+            wrist-borne time machines, Green Watch is a singular source for
+            unusual modern watches from around the world. A watch says a lot
+            about you and helps you stand out. It's time for YOU to be
+            different.
           </p>
           <div className="flex g-4 d-flex justify-content-start ps-3 pt-4 pb-4">
             <a href="https://developer.mozilla.org/">
@@ -43,16 +42,16 @@ const Footer = () => {
             23/2, Aston Villa, <br />
             England. <br />
             Tel: +44 01234 567890 <br /> Fax: +44 025 7689 <br />
-            Email: info@travelnow.ac.uk
+            Email: info@greenwatch.ac.uk
             <br />
             visit:{" "}
             <a
               className="text-light text-decoration-none"
-              href="http://www.travelnow.ac.uk"
+              href="http://www.greenwatch.ac.uk"
               target="_blank"
               rel="noreferrer"
             >
-              www.travelnow.ac.uk
+              www.greenwatch.ac.uk
             </a>
           </p>
         </div>
@@ -73,14 +72,19 @@ const Footer = () => {
             <li>
               <NavLink
                 className="text-light text-decoration-none"
-                to="/ReviewOrder-booking/:serviceId"
+                to="/products"
               >
-                ReviewOrder Booking
+                Products
               </NavLink>
             </li>
             <li>
               <NavLink to="/login" className="text-light text-decoration-none">
                 Log In
+              </NavLink>
+            </li>
+            <li>
+              <NavLink to="/signup" className="text-light text-decoration-none">
+                Sign Up
               </NavLink>
             </li>
             <li>
@@ -99,7 +103,7 @@ const Footer = () => {
       <hr className="border-card" />
       <div>
         <p className="text-center mb-0">
-          © 2021 Travel Now. Component copyrights belongs to their authors.
+          © 2021 Green Watch. Component copyrights belongs to their authors.
         </p>
       </div>
     </div>

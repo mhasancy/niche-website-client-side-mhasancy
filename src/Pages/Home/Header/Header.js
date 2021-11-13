@@ -13,7 +13,7 @@ const Header = () => {
   return (
     <AppBar className=" sticky-top navbar navbar-expand-lg shadow navbar-white fw-bold">
       <Box className="container">
-        <NavLink className="navbar-brand fs-1 fw-bold gradient-txt" to="/">
+        <NavLink className="navbar-brand fs-1 fw-bold" to="/">
           <span style={{ fontFamily: "Merienda" }}>Green Watch</span>
         </NavLink>
         <button
@@ -65,7 +65,12 @@ const Header = () => {
               <>
                 <li className="nav-item">
                   <NavLink to="/login" className="nav-link">
-                    Log in
+                    Login
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink to="/signup" className="nav-link">
+                    Signup
                   </NavLink>
                 </li>
               </>
@@ -74,40 +79,6 @@ const Header = () => {
         </Box>
       </Box>
     </AppBar>
-
-    // <Box sx={{ flexGrow: 1, mb: 10 }}>
-    //   <AppBar position="fixed">
-    //     <Toolbar>
-    //       <Typography variant="h6">Your Watch</Typography>
-    //       <Typography
-    //         variant="h6"
-    //         component="div"
-    //         sx={{ flexGrow: 1 }}
-    //       ></Typography>
-    //       {user?.email ? (
-    //         <>
-    //           <Link to="/dashboard">
-    //            <Button color="inherit">Dashboard</Button>
-    //           </Link>{" "}
-    //          <Button color="inherit">{user?.displayName}</Button>
-    //          <Button onClick={logOut} color="inherit">
-    //             logOut
-    //           </Button>
-    //         </>
-    //       ) : (
-    //         <>
-    //           <Link to="/login">
-    //            <Button color="inherit">Login</Button>
-    //           </Link>
-
-    //           <Link to="/signup">
-    //            <Button color="inherit">SignUp</Button>
-    //           </Link>
-    //         </>
-    //       )}
-    //     </Toolbar>
-    //   </AppBar>
-    // </Box>
   );
 };
 

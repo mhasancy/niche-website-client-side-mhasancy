@@ -66,7 +66,7 @@ const SignUp = () => {
           alignItems: "center",
         }}
       >
-        <Avatar sx={{ m: 1, bgcolor: "primary" }}>
+        <Avatar sx={{ m: 1, bgcolor: "primary.main" }}>
           <LockOutlinedIcon />
         </Avatar>
         <Typography component="h1" variant="h5">
@@ -125,10 +125,20 @@ const SignUp = () => {
           >
             Sign Up
           </Button>
+          <Box>
+            <img
+              style={{ cursor: "pointer" }}
+              className="img-fluid"
+              onClick={handleGoogleLogin}
+              src="./google-signin.png"
+              alt=""
+            />
+          </Box>
+          <br />
           <Grid container justifyContent="center">
-            <Grid item>
+            <Grid item sx={{ mb: 10 }}>
               <Link to="/login" variant="body2">
-                Already have an account? Sign in
+                <Button> Already have an account? Sign in</Button>
               </Link>
             </Grid>
           </Grid>
@@ -137,11 +147,13 @@ const SignUp = () => {
       <Typography variant="body2" color="text.secondary" align="center">
         {"Copyright © "}
         <Link color="inherit" to="/">
-          Your Website
+          Green Watch
         </Link>{" "}
         {new Date().getFullYear()}
         {"."}
       </Typography>
+      <br />
+      <br />
     </Container>
   );
 };

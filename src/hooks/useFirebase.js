@@ -21,6 +21,7 @@ const useFirebase = () => {
   const auth = getAuth();
   //states
   const [user, setUser] = useState({});
+  const [usersData, setUsersData] = useState([]);
   const [emailData, setEmailData] = useState("");
   const [passwordData, setPasswordData] = useState("");
   const [nameData, setNameData] = useState("");
@@ -29,10 +30,14 @@ const useFirebase = () => {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState(false);
   const googleProvider = new GoogleAuthProvider();
+
+  console.log(usersData);
   useEffect(() => {
-    axios.get(`http://localhost:5000/users/${user?.email}`).then((res) => {
-      setAdmin(res?.data.admin);
-    });
+    axios
+      .get(`https://quiet-cliffs-65550.herokuapp.com/users/${user?.email}`)
+      .then((res) => {
+        setAdmin(res?.data.admin);
+      });
   }, [user?.email]);
   //googleSignIn
   const googleSignIn = (location, history) => {
@@ -77,11 +82,27 @@ const useFirebase = () => {
       .finally(() => setIsLoading(false));
   };
 
+  useEffect(() => {
+    axios.get("https://quiet-cliffs-65550.herokuapp.com/users").then((res) => {
+      setUsersData(res?.data);
+    });
+  }, [user]);
+
   const saveUser = (email, displayName, method) => {
     if (method === "post") {
-      axios.post("http://localhost:5000/users", { email, displayName }).then();
+      axios
+        .post("https://quiet-cliffs-65550.herokuapp.com/users", {
+          email,
+          displayName,
+        })
+        .then();
     } else if (method === "put") {
-      axios.put("http://localhost:5000/users", { email, displayName }).then();
+      axios
+        .put("https://quiet-cliffs-65550.herokuapp.com/users", {
+          email,
+          displayName,
+        })
+        .then();
     }
   };
 
@@ -141,6 +162,7 @@ const useFirebase = () => {
     error,
     admin,
     success,
+    usersData,
     setIsLoading,
     setEmailData,
     setPasswordData,

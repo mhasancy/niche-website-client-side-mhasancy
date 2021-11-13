@@ -52,7 +52,11 @@ const Dashboard = (props) => {
           <ListItem>Home</ListItem>
         </Button>
       </Link>
-
+      <Link to={`${url}`}>
+        <Button size="large" sx={{ width: "100%" }}>
+          <ListItem>Dashboard</ListItem>
+        </Button>
+      </Link>
       {admin && (
         <>
           <Link to={`${url}/make-admin`}>
@@ -77,12 +81,6 @@ const Dashboard = (props) => {
           </Link>
         </>
       )}
-
-      <Link to={`${url}`}>
-        <Button size="large" sx={{ width: "100%" }}>
-          <ListItem>Dashboard</ListItem>
-        </Button>
-      </Link>
 
       <Link to={`${url}/payment`}>
         <Button size="large" sx={{ width: "100%" }}>
