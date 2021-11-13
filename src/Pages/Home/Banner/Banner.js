@@ -52,7 +52,6 @@ const Banner = () => {
               <h1 className="d-none d-md-block col-12 col-md-6 text-white fw-bold">
                 NEW <br />
                 ARRIVALS
-                <span className="gradient-txt"> .</span>
               </h1>
               <h1
                 style={{ fontSize: "2.5rem" }}
@@ -60,7 +59,6 @@ const Banner = () => {
               >
                 NEW <br />
                 ARRIVALS
-                <span className="gradient-txt"> .</span>
               </h1>
               <Box></Box>
               <span className="text-start ">
@@ -89,14 +87,12 @@ const Banner = () => {
               <p>EXTRA 20% OFF</p>
               <h1 className="d-none d-md-block col-12 col-md-6 text-white fw-bold">
                 EXCLUSIVE <br /> COLLECTION
-                <span className="gradient-txt"> .</span>
               </h1>
               <h1
                 style={{ fontSize: "2.5rem" }}
                 className="d-block d-md-none col-12 col-md-6 text-white fw-bold"
               >
                 EXCLUSIVE <br /> COLLECTION
-                <span className="gradient-txt"> .</span>
               </h1>
               <Box></Box>
               <span className="text-start ">
