@@ -78,7 +78,7 @@ const useDataContext = () => {
       .get("https://quiet-cliffs-65550.herokuapp.com/reviews")
       .then((response) => setReviewsData(response?.data))
       .catch((error) => setError(error));
-  }, [reviewsData]);
+  }, []);
 
   //blogs data load
   useEffect(() => {
