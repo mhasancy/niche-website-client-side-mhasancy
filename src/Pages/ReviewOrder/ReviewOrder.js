@@ -18,17 +18,20 @@ import { useParams } from "react-router";
 import useAuth from "../../hooks/useAuth";
 import Footer from "../Home/Footer/Footer";
 import Header from "../Home/Header/Header";
+
 //ReviewOrder component
 const ReviewOrder = () => {
   //dynamic route data set
   const { orderId } = useParams();
+
   //react hook form
   const { register, handleSubmit, reset } = useForm();
-  //destructuring with auth and context
+  //destructuring
   const { dataContext, firebaseContext } = useAuth();
   const { user } = firebaseContext;
   const { productsData } = dataContext;
-  //matchedService
+
+  //matched order
   const matchedProducts = productsData?.find(
     (ProductData) => ProductData?._id === orderId
   );

@@ -1,3 +1,4 @@
+// imported file
 import MenuIcon from "@mui/icons-material/Menu";
 import { Button } from "@mui/material";
 import AppBar from "@mui/material/AppBar";
@@ -22,9 +23,9 @@ import ManageProducts from "../ManageProducts/ManageProducts";
 import MyOrders from "../MyOrders/MyOrders";
 import Payment from "../Payment/Payment";
 
-const drawerWidth = 230;
-
+//  dashboard component
 const Dashboard = (props) => {
+  const drawerWidth = 230;
   const { firebaseContext } = useAuth();
   const { admin, logOut } = firebaseContext;
   let { path, url } = useRouteMatch();

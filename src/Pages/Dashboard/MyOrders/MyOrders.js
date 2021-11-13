@@ -19,7 +19,7 @@ const MyOrders = () => {
   //destructuring data from useAuth
   const { dataContext, firebaseContext } = useAuth();
   //destructuring
-  const { ordersData, deleteOrder, handleStatusUpdate } = dataContext;
+  const { ordersData, deleteOrder } = dataContext;
   const { user } = firebaseContext;
 
   const [page, setPage] = React.useState(0);

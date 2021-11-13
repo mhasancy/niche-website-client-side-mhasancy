@@ -4,13 +4,13 @@ import React from "react";
 import { Redirect, Route } from "react-router";
 import useAuth from "../../../hooks/useAuth";
 
-//private route
+//admin route
 const AdminRoute = ({ children, ...rest }) => {
   const { firebaseContext } = useAuth();
 
   //destructuring
-  const { user, isLoading, setIsLoading, admin } = firebaseContext;
-  //isLoading condition
+  const { user, admin } = firebaseContext;
+  //admin condition
   if (!admin) {
     return <CircularProgress />;
   }

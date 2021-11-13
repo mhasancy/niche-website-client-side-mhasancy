@@ -1,5 +1,4 @@
 //imported file
-import { getAuth } from "@firebase/auth";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
@@ -17,21 +16,14 @@ import useAuth from "../../../hooks/useAuth";
 //log in component
 const Login = () => {
   //auth context
-  const auth = getAuth();
   //destructuring
   const { firebaseContext } = useAuth();
-  const {
-    googleSignIn,
-    setUser,
-    setError,
-    setIsLoading,
-    emailLogin,
-    error,
-    errorDataClear,
-  } = firebaseContext;
+  const { googleSignIn, emailLogin } = firebaseContext;
+
   //location redirectUrl
   const location = useLocation();
   const history = useHistory();
+
   //googleSignIn handle
   const handleGoogleLogin = () => {
     googleSignIn(location, history);
@@ -39,7 +31,7 @@ const Login = () => {
   //use hook form
   const { register, handleSubmit } = useForm();
 
-  //use hook form and email SignIn with context
+  //use hook form and email SignIn
   const onSubmitData = (inputData) => {
     const { email, password } = inputData;
     emailLogin(email, password, location, history);

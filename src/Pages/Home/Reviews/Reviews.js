@@ -1,3 +1,4 @@
+//imported file
 import Carousel, { autoplayPlugin } from "@brainhubeu/react-carousel";
 import "@brainhubeu/react-carousel/lib/style.css";
 import { Container, Typography } from "@mui/material";
@@ -5,7 +6,9 @@ import { Box } from "@mui/system";
 import React from "react";
 import useAuth from "../../../hooks/useAuth";
 import Review from "../Review/Review";
+//reviews component
 const Reviews = () => {
+  //destructuring
   const { dataContext } = useAuth();
   const { reviewsData } = dataContext;
 

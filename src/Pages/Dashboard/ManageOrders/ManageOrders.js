@@ -1,3 +1,4 @@
+//imported file
 import DeleteIcon from "@mui/icons-material/Delete";
 import LocalShippingIcon from "@mui/icons-material/LocalShipping";
 import { IconButton, Typography } from "@mui/material";
@@ -13,6 +14,8 @@ import Tooltip from "@mui/material/Tooltip";
 import { Box } from "@mui/system";
 import * as React from "react";
 import useAuth from "../../../hooks/useAuth";
+
+//manage orders component
 const ManageOrders = () => {
   const { dataContext } = useAuth();
   //destructuring

@@ -11,6 +11,7 @@ import Typography from "@mui/material/Typography";
 import { Box } from "@mui/system";
 import React from "react";
 import { Link } from "react-router-dom";
+
 //Product component
 const Product = ({ productData }) => {
   //destructuring props

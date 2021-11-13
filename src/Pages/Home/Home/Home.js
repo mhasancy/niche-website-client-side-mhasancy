@@ -23,6 +23,7 @@ import Reviews from "../Reviews/Reviews";
 
 //home component
 const Home = () => {
+  //destructuring
   const { dataContext } = useAuth();
   const { productsData } = dataContext;
   return (
@@ -49,7 +50,7 @@ const Home = () => {
               .slice(0, 6)
               .map(({ _id, title, intro, imgUrl, rating, price }) => {
                 return (
-                  <Grid item xs={8} md={4} sx={{ mx: "auto" }}>
+                  <Grid key={_id} item xs={8} md={4} sx={{ mx: "auto" }}>
                     <Card
                       sx={{ maxWidth: 400, textAlign: "center", height: 530 }}
                     >

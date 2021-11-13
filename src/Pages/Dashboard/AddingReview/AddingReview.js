@@ -8,15 +8,12 @@ import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
 import useAuth from "../../../hooks/useAuth";
+
+//reviews adding component
 const AddingReview = () => {
   const { firebaseContext } = useAuth();
   const { user } = firebaseContext;
-  const {
-    register,
-    reset,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, reset, handleSubmit } = useForm();
 
   //use hook form and email SignIn with context
   const onSubmitData = (inputData) => {

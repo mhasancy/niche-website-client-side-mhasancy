@@ -1,14 +1,19 @@
+//imported file
 import { Grid, Paper } from "@mui/material";
 import { Box } from "@mui/system";
 import * as React from "react";
 import useAuth from "../../../hooks/useAuth";
+//dashboard home component
 const DashboardHome = () => {
   const { dataContext, firebaseContext } = useAuth();
   const { productsData, ordersData, reviewsData } = dataContext;
   const { admin, user, usersData } = firebaseContext;
+
+  //matched orders
   const myOrderedItems = ordersData?.filter(
     (myOrderedItem) => myOrderedItem.email === user.email
   );
+  // matched reviews data
   const myReviews = reviewsData?.filter(
     (myReview) => myReview.email === user.email
   );

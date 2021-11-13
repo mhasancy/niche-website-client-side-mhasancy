@@ -30,6 +30,7 @@ const useDataContext = () => {
         .catch((error) => setError(error));
     }
   };
+
   //delete products data
   const deleteProduct = (_id) => {
     const confirmation = window.confirm("Are you sure you want to delete?");
@@ -48,6 +49,7 @@ const useDataContext = () => {
         .catch((error) => setError(error));
     }
   };
+
   //handle status change to approved
   const handleStatusUpdate = (_id) => {
     axios
@@ -68,7 +70,7 @@ const useDataContext = () => {
       .get("https://quiet-cliffs-65550.herokuapp.com/products")
       .then((response) => setProductsData(response?.data))
       .catch((error) => setError(error));
-  }, []);
+  }, [productsData]);
 
   //review data load
   useEffect(() => {
@@ -76,7 +78,7 @@ const useDataContext = () => {
       .get("https://quiet-cliffs-65550.herokuapp.com/reviews")
       .then((response) => setReviewsData(response?.data))
       .catch((error) => setError(error));
-  }, []);
+  }, [reviewsData]);
 
   //blogs data load
   useEffect(() => {
@@ -86,13 +88,13 @@ const useDataContext = () => {
       .catch((error) => setError(error));
   }, []);
 
-  //individual order data load
+  // order data load
   useEffect(() => {
     axios
       .get("https://quiet-cliffs-65550.herokuapp.com/orders")
       .then((response) => setOrdersData(response?.data))
       .catch((error) => setError(error));
-  }, []);
+  }, [ordersData]);
 
   return {
     productsData,

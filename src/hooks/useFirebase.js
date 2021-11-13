@@ -31,7 +31,7 @@ const useFirebase = () => {
   const [success, setSuccess] = useState(false);
   const googleProvider = new GoogleAuthProvider();
 
-  console.log(usersData);
+  //admin check
   useEffect(() => {
     axios
       .get(`https://quiet-cliffs-65550.herokuapp.com/users/${user?.email}`)
@@ -39,6 +39,7 @@ const useFirebase = () => {
         setAdmin(res?.data.admin);
       });
   }, [user?.email]);
+
   //googleSignIn
   const googleSignIn = (location, history) => {
     setIsLoading(true);
@@ -81,13 +82,13 @@ const useFirebase = () => {
       })
       .finally(() => setIsLoading(false));
   };
-
+  //users data load
   useEffect(() => {
     axios.get("https://quiet-cliffs-65550.herokuapp.com/users").then((res) => {
       setUsersData(res?.data);
     });
   }, [user]);
-
+  // users data saving to database
   const saveUser = (email, displayName, method) => {
     if (method === "post") {
       axios
@@ -105,8 +106,6 @@ const useFirebase = () => {
         .then();
     }
   };
-
-  //load admin
 
   //email login
   const emailLogin = (email, password, location, history) => {
@@ -129,6 +128,7 @@ const useFirebase = () => {
       })
       .finally(() => setIsLoading(false));
   };
+
   //logout
   const logOut = () => {
     setIsLoading(true);
@@ -136,6 +136,7 @@ const useFirebase = () => {
       .then(() => {})
       .finally(() => setIsLoading(false));
   };
+
   //set error handle empty
   const errorDataClear = () => {
     setError("");

@@ -1,5 +1,4 @@
 //imported file
-import { getAuth } from "@firebase/auth";
 import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
 import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
@@ -18,21 +17,12 @@ import useAuth from "../../../hooks/useAuth";
 const SignUp = () => {
   //destructuring
   const { firebaseContext } = useAuth();
-  const {
-    googleSignIn,
-    setError,
-    setUser,
-    setIsLoading,
-    emailSignup,
-    error,
-    errorDataClear,
-  } = firebaseContext;
-  //auth context
-  const auth = getAuth();
+  const { googleSignIn, setError, emailSignup } = firebaseContext;
   //location redirectUrl
   const location = useLocation();
   const history = useHistory();
   const redirectUrl = location.state?.from || "/";
+
   //googleSignIn handle with context
   const handleGoogleLogin = () => {
     googleSignIn().then(() => {
@@ -40,11 +30,7 @@ const SignUp = () => {
     });
   };
   //use hook form
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit } = useForm();
 
   //use hook form and emailSignup with context
 

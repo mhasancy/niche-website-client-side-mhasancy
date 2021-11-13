@@ -1,4 +1,5 @@
 //imported file
+import { CircularProgress } from "@mui/material";
 import React from "react";
 import { Redirect, Route } from "react-router";
 import useAuth from "../../../hooks/useAuth";
@@ -11,11 +12,7 @@ const PrivateRoute = ({ children, ...rest }) => {
   const { user, isLoading } = firebaseContext;
   //isLoading condition
   if (isLoading) {
-    return (
-      <div className="text-center">
-        <div className="spinner-border" role="status"></div>
-      </div>
-    );
+    return <CircularProgress />;
   }
   return (
     <Route

@@ -8,17 +8,12 @@ import axios from "axios";
 import React from "react";
 import { useForm } from "react-hook-form";
 
-//adding tour services component
+//adding product services component
 const AddingProduct = () => {
   //destructuring use_form
-  const {
-    register,
-    reset,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
+  const { register, reset, handleSubmit } = useForm();
 
-  //use hook form and email SignIn with context
+  //use hook form
   const onSubmitData = (inputData) => {
     const { title, intro, imgUrl, price } = inputData;
     axios
@@ -35,7 +30,7 @@ const AddingProduct = () => {
         }
       })
       .catch((error) => {
-        alert(error);
+        alert("Product not added, please try again.");
       });
   };
 

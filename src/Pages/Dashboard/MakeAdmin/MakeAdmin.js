@@ -6,18 +6,13 @@ import TextField from "@mui/material/TextField";
 import axios from "axios";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-
+//make admin component
 const MakeAdmin = () => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm();
+  const { register, handleSubmit, reset } = useForm();
 
-  //use hook form and email SignIn with context
+  //use hook form to submit email
   const onSubmitData = (inputData) => {
     setSuccess(false);
     setError(false);
@@ -26,14 +21,12 @@ const MakeAdmin = () => {
     axios
       .put("https://quiet-cliffs-65550.herokuapp.com/users/admin", { email })
       .then((res) => {
-        console.log(res.data);
         if (res?.data?.modifiedCount > 0) {
-          alert("ok");
           setSuccess(true);
         } else if (res?.data?.modifiedCount === 0) {
-          window.alert("ono ok");
           setError(true);
         }
+        reset();
       });
   };
   return (
