@@ -48,7 +48,7 @@ const ReviewOrder = () => {
       })
       .then((response) => {
         if (response?.data.acknowledged) {
-          alert("Tour booked successfully.");
+          alert("Order placed successfully.");
           reset();
         }
       })

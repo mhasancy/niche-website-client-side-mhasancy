@@ -70,7 +70,7 @@ const MakeAdmin = () => {
           {success && (
             <Alert severity="success">Admin Added Successfully!</Alert>
           )}
-          {error && <Alert severity="error">Admin no Added!</Alert>}
+          {error && <Alert severity="error">Admin not Added!</Alert>}
         </Box>
       </Box>
     </Container>
