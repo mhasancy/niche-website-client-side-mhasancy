@@ -24,7 +24,7 @@ const useDataContext = () => {
               (order) => order?._id === _id
             );
             setOrdersData(remainingOrders);
-            alert("Booking deleted successfully.");
+            alert("Order deleted successfully.");
           }
         })
         .catch((error) => setError(error));
@@ -43,7 +43,7 @@ const useDataContext = () => {
               (order) => order?._id === _id
             );
             setProductsData(remainingProducts);
-            alert("products deleted successfully.");
+            alert("Products deleted successfully.");
           }
         })
         .catch((error) => setError(error));
